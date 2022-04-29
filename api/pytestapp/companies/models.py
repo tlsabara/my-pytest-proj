@@ -53,3 +53,25 @@ class Operadores(models.Model):
 
     def __str__(self):
         return f'{self.nome} ({self.cpf}) [ {self.status_clt} ]'
+
+class TabulacoesOperacao(models.Model):
+    class TabulacoesTipo(models.TextChoices):
+        TELEFONIA = 'Telefonia'
+        ALO = 'Alô'
+        CPC = 'Cpc'
+        CPCA = 'Cpca'
+        CONVERSÃO = 'Conversão'
+
+    class TabulacaoSubtipo(models.TextChoices):
+        BLACKLIST = 'Blacklist'
+        PRODUTIVO = 'Produtivo'
+        IMPRODUTIVO = 'Improdutivo'
+
+    class TabulacaoOperacao(models.TextChoices):
+        BLENDED = 'Blended'
+        RECEPTIVO = 'Receptivo'
+        ATIVO = 'Ativo'
+    tabulacao = models.CharField(max_length=50)
+    tipo_tabulacao = models.CharField(choices=TabulacoesTipo.choices, max_length=30)
+    subtipo_taublacao = models.CharField(choices=TabulacaoSubtipo.choices, max_length=30)
+    renitencia = models.IntegerField
