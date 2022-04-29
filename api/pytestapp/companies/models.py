@@ -74,4 +74,4 @@ class TabulacoesOperacao(models.Model):
     tabulacao = models.CharField(max_length=50)
     tipo_tabulacao = models.CharField(choices=TabulacoesTipo.choices, max_length=30)
     subtipo_taublacao = models.CharField(choices=TabulacaoSubtipo.choices, max_length=30)
-    renitencia = models.IntegerField
+    renitencia = models.IntegerField()
